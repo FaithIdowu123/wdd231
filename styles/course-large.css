@@ -4,7 +4,7 @@
         grid-template-columns: repeat(2, minmax(100px,370px));
         
     }
-    .head h1{
+    .head h2{
         font-size: 1.85rem;
         margin-left: -60px;
     }
