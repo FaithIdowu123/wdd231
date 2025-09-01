@@ -126,6 +126,7 @@ figure{
     padding: 10px 0;
     margin: 0 ;
     justify-self: center;
+    priority: low;
 }
 
 .cards h3{
