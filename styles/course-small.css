@@ -16,7 +16,7 @@ body{
     font-family: var(--body-font);  
 }
 
-h1, h2, h2{
+h1, h2, h3{
     font-family: var(--heading-font);
 }
 
@@ -89,7 +89,7 @@ header img{
     color: var(--secondary-color);
 }
 
-h2{
+main h1{
     margin-left: 30px;
 }
 
@@ -109,7 +109,6 @@ h2{
 .cards section{
     border-radius: 8px;
     border: none;
-    box-shadow: 0;
     height: 150px;
     min-height: 280px;
     text-align: center;
@@ -126,7 +125,6 @@ figure{
     padding: 10px 0;
     margin: 0 ;
     justify-self: center;
-    priority: low;
 }
 
 .cards h3{

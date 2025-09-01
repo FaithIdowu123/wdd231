@@ -23,7 +23,7 @@
 
     #content{
         display: block;
-        flex-direction: none;
+        flex-direction: unset;
         border: none;
     }
 
@@ -48,6 +48,5 @@
     }
     #courses {
         grid-template-columns: repeat(auto-fit, minmax(100px, 250px));
-        
     }
 }
