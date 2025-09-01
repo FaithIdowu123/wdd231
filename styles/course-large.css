@@ -9,11 +9,13 @@
         margin-left: -60px;
     }
     #navigation{
+        display: flex;
         flex-direction: row;
         opacity: 1;
     }
 
     #navigation.show{
+        display: flex;
         position: relative;
     }
 

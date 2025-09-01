@@ -32,9 +32,9 @@ header{
     place-content: center;
 }
 
-header h1{
+header h2{
     margin: auto auto;
-    font-size: 1.325rem;
+    font-size: 1.7rem;
     color: white;
     margin-left: -20px;
 }
