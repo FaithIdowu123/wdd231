@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Greenwood Park",
+    "address": "123 Park Lane, Chamber City",
+    "description": "A peaceful park with walking trails and picnic areas.",
+    "image": "images/greenwood.webp"
+  },
+  {
+    "name": "City Museum",
+    "address": "456 History Rd, Chamber City",
+    "description": "Exhibits local history and culture with interactive displays.",
+    "image": "images/museum.webp"
+  },
+  {
+    "name": "Riverwalk",
+    "address": "789 River St, Chamber City",
+    "description": "A scenic riverside walkway with cafes and shops.",
+    "image": "images/riverwalk.webp"
+  },
+  {
+    "name": "Central Library",
+    "address": "101 Book Ave, Chamber City",
+    "description": "Modern library with digital learning zones and archives.",
+    "image": "images/library.webp"
+  },
+  {
+    "name": "Tech Hub",
+    "address": "202 Innovation Blvd, Chamber City",
+    "description": "Startup and innovation center supporting new businesses.",
+    "image": "images/techhub.webp"
+  },
+  {
+    "name": "Sports Arena",
+    "address": "303 Champion Rd, Chamber City",
+    "description": "Hosts basketball, concerts, and large community events.",
+    "image": "images/arena.webp"
+  },
+  {
+    "name": "Botanical Garden",
+    "address": "404 Flora St, Chamber City",
+    "description": "Beautiful gardens showcasing plants from around the world.",
+    "image": "images/garden.webp"
+  },
+  {
+    "name": "Historic Theater",
+    "address": "505 Stage Ln, Chamber City",
+    "description": "Restored theater with plays, musicals, and film festivals.",
+    "image": "images/theater.webp"
+  }
+]

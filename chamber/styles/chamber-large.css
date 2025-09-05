@@ -1,0 +1,19 @@
+@media screen and (min-width: 36rem){
+    #menu{
+        display: none;
+    }
+
+    ul#navigation, ul#navigation.show{
+        display: flex;
+        justify-items: flex-end;
+    }
+
+    ul#navigation a:hover {
+        background-color: rgba(0,0,0,0.2);
+    }
+    
+    footer {
+        flex-direction: row;
+        align-items: center;
+    }
+}
