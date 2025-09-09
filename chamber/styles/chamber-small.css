@@ -215,23 +215,7 @@ footer {
     padding-left: 20px;
 }
 
-footer .links {
-    display: flex;
-    gap: 20px;
-    background-color: transparent;
-}
 
-footer .links a {
-    padding: 8px 8px 5px 8px;
-    border-radius: 35px;
-    background-color: var(--Background-color);
-    margin: 0 auto;
-}
-
-footer .links a img{
-    width: 25px;
-    height: 25px;
-}
 
 @media screen and (min-width: 630px){
     #menu{
