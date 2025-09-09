@@ -22,7 +22,7 @@ function displaycards(members){
      const link = document.createElement("a")
 
      title.textContent = member.name;
-     image.setAttribute("src", "images/" + member.image + "?v=1.0");
+     image.setAttribute("src", "images/" + member.image);
      image.setAttribute("alt", member.name);
      image.setAttribute("fetchpriority", "high");
      address.textContent = member.address;
