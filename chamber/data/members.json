@@ -4,7 +4,7 @@
     "address": "45 Innovation Street, Lagos, Nigeria",
     "phone": "+234-801-234-5678",
     "website": "https://brighttechsolutions.com",
-    "image": "brighttech-logo.png",
+    "image": "images/brighttech-logo.webp",
     "membershipLevel": 3,
     "industry": "Information Technology",
     "description": "Specializing in custom software development and cloud integration."
@@ -14,7 +14,7 @@
     "address": "12 Farmview Road, Abuja, Nigeria",
     "phone": "+234-802-345-6789",
     "website": "https://greenleaforganics.ng",
-    "image": "greenleaf-logo.png",
+    "image": "images/greenleaf-logo.webp",
     "membershipLevel": 2,
     "industry": "Agriculture",
     "description": "Organic farming and supply of fresh produce to local markets."
@@ -24,7 +24,7 @@
     "address": "89 Design Avenue, Port Harcourt, Nigeria",
     "phone": "+234-803-456-7890",
     "website": "https://skylinearchitects.com",
-    "image": "skyline-logo.png",
+    "image": "images/skyline-logo.webp",
     "membershipLevel": 1,
     "industry": "Architecture & Design",
     "description": "Award-winning architecture firm focused on sustainable designs."
@@ -34,7 +34,7 @@
     "address": "27 Solar Way, Ibadan, Nigeria",
     "phone": "+234-804-567-8901",
     "website": "https://sunpowerenergy.com.ng",
-    "image": "sunpower-logo.png",
+    "image": "images/sunpower-logo.webp",
     "membershipLevel": 3,
     "industry": "Renewable Energy",
     "description": "Leaders in solar panel installation and maintenance."
@@ -44,7 +44,7 @@
     "address": "78 Marina Drive, Lagos, Nigeria",
     "phone": "+234-805-678-9012",
     "website": "https://bluewavetravels.com",
-    "image": "bluewave-logo.png",
+    "image": "images/bluewave-logo.webp",
     "membershipLevel": 2,
     "industry": "Travel & Tourism",
     "description": "Providing premium travel packages and guided tours worldwide."
@@ -54,7 +54,7 @@
     "address": "101 Wellness Lane, Enugu, Nigeria",
     "phone": "+234-806-789-0123",
     "website": "https://elitefitnessclub.com",
-    "image": "elitefitness-logo.png",
+    "image": "images/elitefitness-logo.webp",
     "membershipLevel": 1,
     "industry": "Health & Fitness",
     "description": "State-of-the-art gym facilities with certified personal trainers."
@@ -64,7 +64,7 @@
     "address": "15 Broadcast Street, Kano, Nigeria",
     "phone": "+234-807-890-1234",
     "website": "https://crystalclearmedia.com",
-    "image": "crystalclear-logo.png",
+    "image": "images/crystalclear-logo.webp",
     "membershipLevel": 2,
     "industry": "Media & Communications",
     "description": "Specialists in digital marketing, video production, and branding."

@@ -1,0 +1,26 @@
+@media screen and (min-width: 630px){
+    #menu{
+        display: none;
+    }
+    nav {
+        grid-template-rows: 1fr;
+    }
+
+    ul#navigation, ul#navigation.show{
+        display: flex;
+        justify-items: flex-end;
+        width: 100%;
+    }
+
+
+    main {
+        height: 1400px;
+    } 
+
+    
+    
+    footer {
+        flex-direction: row;
+        align-items: center;
+    }
+}

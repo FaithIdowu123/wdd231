@@ -1,7 +1,7 @@
 :root {
-    --primary-color: #004080;
-    --Secondary-color: #FFB81C;
-    --Background-color: #F5F5F5;
+    --primary-color: #00823a;
+    --Secondary-color: #c2ff1c;
+    --Background-color: #e4e4e4;
     --text-color: #333333;
     --font-family: "Roboto", sans-serif;
 }
@@ -19,19 +19,22 @@ body{
 
 header {
     display: grid;
-    grid-template-columns: 100px auto 40px;
+    grid-template-columns: 120px auto 40px;
     background-color: var(--primary-color);
     align-items: center;
     gap: 10px;
+    padding-left: 10px;
+    height: 110px
 }
 
 header img {
-    width: 100px;
-    height: 50px;
+    width: 90px;
+    height: 90px;
 }
 .title {
     color: white;
     width: fit-content;
+    font-size: small;
 }
 
 .title h1{
@@ -53,9 +56,10 @@ header img {
     border: none;
     cursor: pointer;
     text-align: right;
-    color: white;
+    color: black;
     width: 100%;
     padding: 0.25rem 2vw;
+
 }
 
 
@@ -64,35 +68,119 @@ header img {
     font-size: 2rem;
 }
 nav{
-    background-color: yellow;
+    background-color: rgb(0, 0, 0);
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-out;
 }
+
+nav ul {overflow: hidden;}
+
+nav.show {
+    grid-template-rows: 1fr;
+}
+
+main {
+    height: 2400px;
+} 
+
+main#maincontent.list {
+    height: max-content;
+}
+
 ul#navigation{
-    display: none;
     list-style-type: none;
     margin: 0 auto;
     margin-left: -40px;
     flex-direction: row;
+    transition: 1s ease-out;
+    width: 120%;
 }
 
-ul#navigation.show{
-    display: block;
-}
+
 
 ul#navigation li a{
     display: block;
     text-decoration: none;
-    color: black;
-    padding: 0.25rem 2vw;
+    color: rgb(255, 255, 255);
+    padding: 0.25rem 5vw;
     font-size: 1.2rem;
+    width: 100%;
 }
 
 ul#navigation a:hover {
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.2);
 }
 
 li.current-page a{
-    background-color: rgba(0,0,0,0.2);
+    background-color: rgba(255,255,255,0.3);
 }
+
+#cards, #cards.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 300px);
+    place-content: center;
+    text-align: center;
+    gap: 30px;
+    margin: 30px 0;
+}
+
+
+
+#cards section, #cards.grid section, #cards.list section  {
+    padding: 30px 0;
+    box-shadow: 1px 1px 2px 1px black;
+}
+
+#cards section img, #cards.grid section img{
+    width: 250px;
+    height: 125px;
+    border-radius: 8px;
+}
+
+#cards section p:first-child, #cards.grid section p:first-child, #cards.list section p:first-child{
+    display: none;
+}
+
+#cards.list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+#cards.list section {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(25px, 200px));
+    width: 70%;
+    margin: 0 auto;
+    font-size: small;
+    text-align: left;
+    padding: 0;
+    box-shadow: 0px 0px 0px 0px black;
+}
+
+#cards.list section p{
+    margin-left: 10px;
+}
+
+#cards.list section img{
+    display: none;
+}
+
+#cards.list section p:first-child{
+    display: block;
+}
+
+#cards.list section:nth-child(odd){
+    background-color: #acffa8;
+}
+
+#cards section a {
+    text-decoration: none;
+    margin: auto 0;
+    color: var(--text-color);
+}
+
 
 .buttons{
     display: flex;
@@ -118,6 +206,7 @@ footer {
     color: white;
     height: fit-content;
     gap: 20px;
+    padding-left: 20px;
 }
 
 footer .links {
