@@ -185,9 +185,7 @@ main#maincontent.list {
 }
 
 #cards section a {
-    text-decoration: none;
     margin: auto 0;
-    color: var(--text-color);
 }
 
 
