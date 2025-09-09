@@ -37,12 +37,14 @@ header img {
     font-size: small;
 }
 
-.title h1{
+.title h2{
     margin-bottom: -15px;
+    font-size: 30px;
 }
 
 .title p{
     margin-left: 2.5px;
+    font-size: larger;
 }
 
 #menu::before {
@@ -84,6 +86,9 @@ main {
     height: 2400px;
 } 
 
+h1 {
+    margin-left: 10px;
+}
 main#maincontent.list {
     height: max-content;
 }
