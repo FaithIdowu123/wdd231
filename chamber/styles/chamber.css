@@ -127,7 +127,6 @@ main#maincontent.list {
     height: max-content;
 }
 
-/* CARDS (GRID + LIST) */
 #cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, 300px);
@@ -146,7 +145,6 @@ main#maincontent.list {
     width: 250px;
     height: 125px;
     border-radius: 8px;
-    background-image: var(--background-color);
 }
 
 #cards section p:first-child {
