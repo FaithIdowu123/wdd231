@@ -141,6 +141,7 @@ li.current-page a{
     width: 250px;
     height: 125px;
     border-radius: 8px;
+    background-image: var(--Background-color);
 }
 
 #cards section p:first-child, #cards.grid section p:first-child, #cards.list section p:first-child{
