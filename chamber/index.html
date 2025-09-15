@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="styles/chamber.css">
     <link rel="preload" href="images/greenleaf-logo.webp" fetchpriority="high" as="image">
     <script src="scripts/navigation.js" defer></script>
-    <script type="module" src="scripts/index.js" defer></script>
+    <script type="module" src="scripts/index.js"></script>
 </head>
 <body>
     <header>
@@ -38,6 +38,7 @@
     </nav>
     <main id="maincontent" class="home">
         <h1>NIGERIA</h1>
+        <img src="images/banner.png" alt="Banner Image" class="banner" loading="lazy">
         <section class="events">
             <h2>EVENTS</h2>
             <div class="event">
@@ -50,11 +51,7 @@
         <section class="weather"> 
             <h3>Weather</h3>
             <div class="current">
-                <h1>Current Weather</h1>
-                <h4 id="name"></h4>
-                <p id="description"></p>
-                <img id="icon" src="" alt="">
-                <p id="temperature"></p>
+                
             </div>
             <div id="day"></div>
         </section>

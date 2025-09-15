@@ -10,10 +10,35 @@ const urlfourday = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&
 let fourday = {};
 
 apiFetch(url).then(data => {
-  document.getElementById('name').textContent = data.name;
-  document.getElementById('description').textContent = data.weather[0].description; 
-  document.getElementById('icon').setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
-  document.getElementById('temperature').textContent = data.main.temp + " °F";
+  document.querySelector(".current").innerHTML = ``;
+  if (data != "null"){
+    const name = document.createElement("h4");
+    const description = document.createElement("p");
+    const icon = document.createElement("img");
+    const temperature = document.createElement("p");
+
+    name.textContent = data.name;
+    description.textContent = data.weather[0].description; 
+    icon.setAttribute("src", `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`);
+    icon.setAttribute("alt", data.weather[0].description);
+    icon.setAttribute("fetchpriority", "high");
+    temperature.textContent = data.main.temp + " °F";
+
+    const current = document.createElement("h2");
+    current.textContent = "Current Weather";
+    document.querySelector(".current").appendChild(current);
+    document.querySelector(".current").appendChild(name);
+    document.querySelector(".current").appendChild(description);  
+    document.querySelector(".current").appendChild(icon);
+    document.querySelector(".current").appendChild(temperature);
+  }
+  else{
+    const current = document.createElement("h2");
+    current.textContent = "Oops something went wrong!";
+    document.querySelector(".current").appendChild(current);
+  }
+  
+
 });
 apiFetch(urlfourday).then(data => {displaycards(formatDailySummary(data.list));});
 loadmembers().then(data => {displaydata(data);});

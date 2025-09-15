@@ -215,6 +215,15 @@ main#maincontent.list {
 }
 
 /* Index css */
+img.banner {
+    width: 80%;
+    height: 300px;
+    border-radius: 6px;
+    box-shadow: 1px 1px 2px 1px black;
+    display: block;
+    margin: 20px auto;
+}
+
 .events {
     background-color: var(--primary-color);
     max-width: 900px;
@@ -280,6 +289,15 @@ main#maincontent.list {
     border-bottom: 2px solid var(--text-color);
     margin: -10px;
     width: 200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.current h2{
+    font-size: xx-large;
+    border-bottom: 2px solid var(--text-color);
+    margin: -10px;
+    width: 300px;
     text-align: center;
     margin: 0 auto;
 }
@@ -394,14 +412,10 @@ footer {
     }
 
     main#maincontent.home{
-        height: 1600px;
+        height: 1800px;
     }
     
 }
 
-@media screen and (min-width: 1037px) {
-    main#maincontent.home {
-        height: 1600px;
-    }
-}
+
 
