@@ -1,11 +1,19 @@
-async function loadmembers() {
-  const response = await fetch("data/members.json");
-  if (!response.ok) {
-    throw new Error("Could not fetch members.json");
-  }
-  const members = await response.json();
-  return members;
-}
+import { loadmembers } from "./members.mjs";
+
+grid.addEventListener("click", function() {
+    cards.classList.remove("list");
+    cards.classList.add("grid");
+    main.classList.remove("list");
+});
+
+list.addEventListener("click", function() {
+    cards.classList.remove("grid");
+    cards.classList.add("list");
+    main.classList.add("list")
+});
+
+
+
 
 loadmembers().then(data => {
   displaycards(data);
@@ -39,3 +47,4 @@ function displaycards(members){
      document.querySelector("#cards").appendChild(card);
   });
 }
+

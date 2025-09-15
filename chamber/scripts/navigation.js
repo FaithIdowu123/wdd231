@@ -16,15 +16,4 @@ menu.addEventListener("click", function(){
     menu.classList.toggle("show");
 });
 
-grid.addEventListener("click", function() {
-    cards.classList.remove("list");
-    cards.classList.add("grid");
-    main.classList.remove("list");
-});
-
-list.addEventListener("click", function() {
-    cards.classList.remove("grid");
-    cards.classList.add("list");
-    main.classList.add("list")
-})
 
