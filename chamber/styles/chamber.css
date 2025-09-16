@@ -216,8 +216,8 @@ main#maincontent.list {
 
 /* Index css */
 img.banner {
-    width: 70%;
-    height: 300px;
+    width: 95%;
+    height: 350px;
     border-radius: 6px;
     box-shadow: 1px 1px 2px 1px black;
     display: block;
@@ -279,7 +279,8 @@ img.banner {
     background-color: white;
     padding-top: 20px;
     border: 2px solid var(--primary-color);
-    width: 80%;
+    min-width: 70%;
+    max-width: 80%;
     border-radius: 8px;
     margin: 0 auto;
 }
@@ -294,12 +295,21 @@ img.banner {
 }
 
 .current h2{
-    font-size: xx-large;
+    font-size: 30px;
     border-bottom: 2px solid var(--text-color);
-    margin: -10px;
-    width: 300px;
+    width: 50%;
     text-align: center;
     margin: 0 auto;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.current h3{
+    color: var(--text-color);
+    font-size: larger;
+    text-align: center;
+    margin: 0 auto;
+    margin-bottom: 20px;
 }
 
 .current p {
@@ -385,7 +395,7 @@ footer {
     }
     
     main#maincontent.home{
-        height: 2800px;
+        height: 2850px;
     }
 
     footer {
@@ -412,7 +422,7 @@ footer {
     }
 
     main#maincontent.home{
-        height: 1800px;
+        height: 1850px;
     }
     
 }

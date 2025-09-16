@@ -33,7 +33,7 @@ apiFetch(url).then(data => {
     document.querySelector(".current").appendChild(temperature);
   }
   else{
-    const current = document.createElement("h2");
+    const current = document.createElement("h3");
     current.textContent = "Oops something went wrong!";
     document.querySelector(".current").appendChild(current);
   }
