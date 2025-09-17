@@ -188,6 +188,16 @@ margin-top: 20px;
   object-fit: cover; 
 }
 
+main#maincontent.home > p {
+  text-align: center; 
+  font-size: large; 
+  font-weight: bold; 
+  margin-top: 10px; 
+}
+
+main#maincontent.home > p a {
+  display: block; 
+}
 
 .events, .weather {
   max-width: 900px; 
@@ -313,6 +323,11 @@ footer {
   color: #fff;
 }
 
+footer h5 {
+  font-size: 20px;
+  margin: -5px 0;
+}
+
 @media (min-width: 630px) {
   #menu { 
     display: none; 
@@ -348,6 +363,6 @@ footer {
     height: 1250px; 
   }
   main#maincontent.home { 
-    height: 2100px; 
+    height: 2150px; 
   }
 }
