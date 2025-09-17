@@ -241,23 +241,23 @@ margin-top: 20px;
   min-width: 70%; 
   max-width: 80%;
 }
-.current h2, .current h4 {
+.current h3, .current h4 {
   border-bottom: 2px solid var(--text-color);
   text-align: center; 
   margin: 0 auto;
 }
-.current h2 { font-size: 30px; 
-    width: 50%; margin-bottom: 10px; 
-    color: var(--text-color); 
-}
+
 .current h4 { 
     font-size: xx-large; 
     width: 200px; }
+
 .current h3 {
-  color: var(--text-color); 
-  font-size: larger;
+  font-size: 30px;
+  margin: 0 auto 20px; 
+  width: 50%; 
+  margin-bottom: 10px; 
+  color: var(--text-color);
   text-align: center; 
-  margin: 0 auto 20px;
 }
 .current p { font-size: large; 
     text-transform: capitalize; 

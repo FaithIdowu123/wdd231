@@ -14,7 +14,7 @@ apiFetch(url).then(data => {
   current.innerHTML = "";
 
   if (data && data !== "null") {
-    const title = document.createElement("h2");
+    const title = document.createElement("h3");
     title.textContent = "Current Weather";
 
     const name = document.createElement("h4");
