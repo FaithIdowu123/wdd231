@@ -1,4 +1,4 @@
-import { loadmembers } from "./members.mjs";
+import { loadjson } from "./members.mjs";
 
 grid.addEventListener("click", function() {
     cards.classList.remove("list");
@@ -15,7 +15,7 @@ list.addEventListener("click", function() {
 
 
 
-loadmembers().then(data => {
+loadjson("data/members.json").then(data => {
   displaycards(data);
 });
 

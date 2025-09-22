@@ -1,0 +1,22 @@
+[
+    {
+        "name": "NP",
+        "description": "No fee. For non-profit organizations.",
+        "benefits": ["No annual fee", "Basic directory listing", "Access to free events"]
+    },
+    {
+        "name": "Bronze",
+        "description": "Entry-level benefits for small businesses.",
+        "benefits": ["All NP benefits", "Networking events", "Basic advertising opportunities"]
+    },
+    {
+        "name": "Silver",
+        "description": "Extra visibility and event discounts.",
+        "benefits": ["All Bronze benefits", "Spotlight on homepage", "Event discounts"]
+    },
+    {
+        "name": "Gold",
+        "description": "Premium exposure and maximum benefits.",
+        "benefits": ["All Silver benefits", "Premium advertising placement", "VIP event access"]
+    }
+]

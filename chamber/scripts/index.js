@@ -1,4 +1,4 @@
-import { loadmembers } from "./members.mjs";
+import { loadjson } from "./members.mjs";
 import { apiFetch } from "./weather.mjs";
 
 const key = "b11aab77e925ca370700d0c87f7e4b22";
@@ -50,7 +50,7 @@ apiFetch(urlfourday).then(data => {
 });
 
 // load members
-loadmembers().then(data => {
+loadjson("data/members.json").then(data => {
   displaydata(data);
 });
 
@@ -96,11 +96,6 @@ function displaydata(members) {
       const level = document.createElement("p");
       level.innerHTML = "<strong>Membership Level:</strong> " + member.membershipLevel;
 
-      if (member.membershipLevel == 2) {
-        card.classList.add("Silver");
-      } else {
-        card.classList.add("Gold");
-      }
 
       card.appendChild(name);
       card.appendChild(img);

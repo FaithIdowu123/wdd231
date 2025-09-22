@@ -1,7 +1,7 @@
 const all = document.querySelector("#all");
 const cse = document.querySelector("#cse");
 const wdd = document.querySelector("#wdd");
-
+const coursedetails = document.querySelector("#course-details");
 const courses = [
     {
         subject: 'CSE',
@@ -102,13 +102,39 @@ function displayCourses(courses){
     document.querySelector("#courses").innerHTML = ``;
     courses.forEach(course => {
         let card = document.createElement("p");
+        card.id = "coursediv";
         card.textContent = course.subject + " " + course.number;
 
         if (course.completed){
             card.classList.add("completed");
         }
 
+        card.addEventListener('click', () => {
+            displayCourseDetails(course);
+        });
+        
         document.querySelector("#courses").appendChild(card);
     });
     document.querySelector("#credits").textContent = credits;
+}
+
+
+
+
+function displayCourseDetails(course) {
+  coursedetails.innerHTML = '';
+  coursedetails.innerHTML = `
+    <button id="closeModal">❌</button>
+    <h2>${course.subject} ${course.number}</h2>
+    <h3>${course.title}</h3>
+    <p><strong>Credits</strong>: ${course.credits}</p>
+    <p><strong>Certificate</strong>: ${course.certificate}</p>
+    <p>${course.description}</p>
+    <p><strong>Technologies</strong>: ${course.technology.join(', ')}</p>
+  `;
+  coursedetails.showModal();
+  
+  closeModal.addEventListener("click", () => {
+    coursedetails.close();
+  });
 }

@@ -1,15 +1,15 @@
-export async function loadmembers() {
-  let members = [];
+export async function loadjson(path) {
+  let json = [];
   try{
-    const response = await fetch("data/members.json");
+    const response = await fetch(path);
     if (response.ok) {
-        members = await response.json();
+        json = await response.json();
     }
     else{
-        throw new Error("Could not fetch members.json");
+        throw new Error("Could not fetch from " + path);
     }
   } catch (error){
     console.log(error);
   }
-  return members;
+  return json;
 }
