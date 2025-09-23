@@ -104,6 +104,13 @@ function displaydata(members) {
       card.appendChild(link);
       card.appendChild(level);
 
+      if (member.membershipLevel == 2){
+        card.classList.add("silver");
+      }
+      else{
+        card.classList.add("gold");
+      }
+
       container.appendChild(card);
     }
   }

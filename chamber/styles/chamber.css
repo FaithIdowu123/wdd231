@@ -310,7 +310,13 @@ main#maincontent.home #cards section p:first-child {
   font-size: 30px;
 }
 
+section.silver {
+  background-color: silver;
+}
 
+section.gold {
+  background-color: gold;
+}
 
 /* Join Us Page Specific Styles */
 main#maincontent.join {
