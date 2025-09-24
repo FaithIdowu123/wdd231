@@ -41,13 +41,13 @@
         <form method="get" action="thankyou.html" class="joinform">
             <label>First name: <input type="text" name="fname" required autocomplete="given-name" title="Your first name"></label>
             <label>Last name: <input type="text" name="lname" required autocomplete="family-name" title="Your last name"></label>
-            <label>Organization title: </title><input type="text" name="title" pattern="^[A-Za-z\s-]{7,}$" autocomplete="organization-title" title="Your title in the organization"></label>
+            <label>Organization title: <input type="text" name="title" pattern="^[A-Za-z\s-]{7,}$" autocomplete="organization-title" title="Your title in the organization"></label>
             <label>Email: <input type="email" name="email" required autocomplete="email" title="Your email address" placeholder="jsnjlsfs@gmail.com"></label>
             <label>Phone N.O: <input type="tel" name="phone" required autocomplete="tel" title="Your phone number"></label>
             <label>Organization name: <input type="text" name="business" required autocomplete="organization" title="The name of your organization/business"></label>
             <label>Membership Level: 
                 <select name="membership" title="select your membership level" required>
-                    <option value=""></option>
+                    <option value="">Choose</option>
                     <option value="NP">Non profit organizations</option>
                     <option value="Bronze">Bronze</option>
                     <option value="Silver">Silver</option>
@@ -58,8 +58,9 @@
             <input type="hidden" name="timestamp" id="formLoadTime">
             <input type="submit" value="Apply now">
         </form>
-        <section id="membership">
-            
+        <section class="membership-levels">
+            <h2>Membership Levels</h2>
+            <div id="membership"></div>     
         </section>
         <dialog id="details"></dialog>
     </main>
