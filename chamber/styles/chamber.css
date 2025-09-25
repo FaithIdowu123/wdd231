@@ -204,6 +204,11 @@ p.call {
   background: var(--primary-color);
 }
 
+p.call a {
+  color: white; 
+  text-decoration: underline; 
+}
+
 main#maincontent.home > p {
   text-align: center; 
   font-size: large; 
