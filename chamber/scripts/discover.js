@@ -26,7 +26,7 @@ loadjson("data/local.json").then(data => {
     const card = document.createElement("section");
     card.innerHTML = `
       <h2>${local.name}</h2>
-      <img src="images/${local.image}?v=1.0" alt="${local.name}" fetchpriority="high">
+      <img src="images/${local.image}?v=1.0" alt="${local.name}" fetchpriority="high" loading="lazy">
       <p class="address">${local.address}</p>
       <p class="desc">${local.description}</p>
       <button id="learn">Learn more</button>
