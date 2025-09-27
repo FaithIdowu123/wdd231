@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Greenwood Park",
+    "address": "12 Oak Street, Central City",
+    "description": "A popular public park with walking trails, picnic areas, and a small lake for paddle boating.",
+    "image": "greenwood_park.webp"
+  },
+  {
+    "name": "Sunset Diner",
+    "address": "45 Main Avenue, Central City",
+    "description": "A retro-style diner known for its classic burgers, milkshakes, and friendly atmosphere.",
+    "image": "sunset_diner.webp"
+  },
+  {
+    "name": "Central City Museum",
+    "address": "100 Heritage Lane, Central City",
+    "description": "A local museum featuring historical exhibits, rotating art galleries, and cultural workshops.",
+    "image": "city_museum.webp"
+  },
+  {
+    "name": "Riverside Mall",
+    "address": "88 River Road, Central City",
+    "description": "The largest shopping mall in the area with a wide range of stores, restaurants, and a cinema.",
+    "image": "riverside_mall.webp"
+  },
+  {
+    "name": "TechHub Library",
+    "address": "200 Innovation Drive, Central City",
+    "description": "A modern library offering free WiFi, study spaces, and access to technology and coding resources.",
+    "image": "techhub_library.webp"
+  },
+  {
+    "name": "Skyline Tower",
+    "address": "55 Skyline Avenue, Central City",
+    "description": "An observation tower that gives visitors a panoramic view of the city, especially beautiful at sunset.",
+    "image": "skyline_tower.webp"
+  },
+  {
+    "name": "Blue Lagoon Café",
+    "address": "9 Harbor Street, Central City",
+    "description": "A cozy café by the water offering freshly brewed coffee, pastries, and a relaxing atmosphere.",
+    "image": "blue_lagoon_cafe.webp"
+  },
+  {
+    "name": "Mountain View Theater",
+    "address": "300 Hilltop Road, Central City",
+    "description": "A performing arts center hosting concerts, plays, and community events throughout the year.",
+    "image": "mountain_view_theater.webp"
+  }
+]
