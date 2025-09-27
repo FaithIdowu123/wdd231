@@ -35,7 +35,7 @@ function displaycards(locals){
      const more = document.createElement("button");
 
      title.textContent = local.name;
-     image.setAttribute("src", "images/" + local.image);
+     image.setAttribute("src", "images/" + local.image + "?v=1.0");
      image.setAttribute("alt", local.name);
      image.setAttribute("fetchpriority", "high");
      address.textContent = local.address;
