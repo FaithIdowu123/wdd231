@@ -1,5 +1,4 @@
-import { apiFetch, loadjson } from "./games.mjs";
-import { displayFeatured, displaymodel } from "./display.mjs";
+import { displayFeatured, displaymodel, loadjson } from "./gamequest.mjs";
 const url = `https://corsproxy.io/?https://www.freetogame.com/api/games`;
 const increase = document.querySelector("#in");
 const decrease = document.querySelector("#de");
