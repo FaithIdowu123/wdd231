@@ -7,7 +7,6 @@ const genre = document.querySelector("#genre");
 let start = 0
 count.textContent = (start / 12) + 1
 
-
 let games = []
 loadjson("data/games.json").then(data => {
   games = data
