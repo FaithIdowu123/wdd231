@@ -1,4 +1,4 @@
-import { apiFetch, loadjson } from "./games.mjs";
+import { apiFetch } from "./games.mjs";
 import { displayFeatured, displaymodel } from "./display.mjs";
 const url = `https://corsproxy.io/?https://www.freetogame.com/api/games`;
 const increase = document.querySelector("#in");
@@ -11,7 +11,8 @@ count.textContent = (start / 12) + 1
 
 displayfilter()
 
-apiFetch(url).then(data => {console.log(data); displayFeatured(data,start, 11 + start);
+apiFetch(url).then(data => {
+  displayFeatured(data,start, 11 + start);
   var total = 0
   data.forEach(game => {
     total += 1
@@ -21,7 +22,7 @@ apiFetch(url).then(data => {console.log(data); displayFeatured(data,start, 11 + 
 
 increase.addEventListener("click", ()=>{
     start += 12
-    apiFetch(url).then(data => {console.log(data); 
+    apiFetch(url).then(data => { 
         if (start > data.length - 11 ){
           start = data.length - 11 
         }
@@ -35,7 +36,7 @@ decrease.addEventListener("click", ()=>{
     if (start < 0 ){
         start = 0
     }
-    apiFetch(url).then(data => {console.log(data); 
+    apiFetch(url).then(data => { 
       displayFeatured(data,start, 11 + start)
       count.innerHTML = Math.round((start / 12) + 1);
     }) 
@@ -50,7 +51,6 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
     const name = text.value.toLowerCase();
     const gen = genre.value;
-    console.log(name);
 
     apiFetch(url).then(data => {
       const results = data.filter(game => {
@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", () => {
           return game
         }
     });
-      console.log(results);
       count.textContent = 1
       if (!gen){
         displayFeatured(results,0, 11);
@@ -85,7 +84,6 @@ function displayfilter(){
         let genres = data.map(game => game.genre);
         let uniqueGenres = [...new Set(genres)];
         uniqueGenres.sort();
-        console.log(uniqueGenres);
         uniqueGenres.forEach(g => {
             let option = document.createElement("option");
             option.value = g;

@@ -7,10 +7,3 @@ document.getElementById('out-desc').textContent = params.get("description");
 document.getElementById('out-time').textContent = new Date(params.get('timestamp')).toLocaleString();
 
 
-let comments =  JSON.parse(localStorage.getItem("comments")) || [];
-console.log(comments)
-comments.push([params.get('fname') + " " + params.get('lname'), params.get('email'), params.get('topic'), params.get("description"), new Date(params.get('timestamp')).toLocaleString()]);
-setvisits()
-function setvisits(){
-    localStorage.setItem("comments", JSON.stringify(comments));
-}

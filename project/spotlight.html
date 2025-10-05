@@ -13,16 +13,14 @@
     <meta property="og:title" content="GameQuest Home | GQ">
     <meta property="og:description" content="Explore registered businesses in Nigeria. View company info, contacts, and what services they offer in our verified directory.">
     <meta property="og:image" content="https://faithidowu123.github.io/wdd231/project/images/logo.webp">
-    <meta property="og:url" content="https://faithidowu123.github.io/wdd231/project/index.html">
+    <meta property="og:url" content="https://faithidowu123.github.io/wdd231/project/spotlight.html">
     <link rel="stylesheet" href="styles/gamequest.css">
     <script src="scripts/gamequest.js" defer></script>
     <script type="module" src="scripts/spotlight.js"></script>
-    
-    <link rel="preload" href="" fetchpriority="high" as="image">
 </head>
 <body>
     <header>
-        <img src="images/logo.webp" alt="website logo" loading="lazy">
+        <img src="images/logo.webp" alt="website logo" loading="eager" fetchpriority="high">
         <div class="title">
             <h2>GameQuest</h2>
             <p>Free To Play Finder</p>
@@ -44,11 +42,11 @@
         <form method="get" action="thankyou.html" class="contactform">
             <h2>Contact us</h2>
             <p>(If in need of any assistance.)</p>
-            <label>First name: <input type="text" name="fname" required autocomplete="given-name" title="Your first name"></label>
-            <label>Last name: <input type="text" name="lname" required autocomplete="family-name" title="Your last name"></label>
-            <label>Email: <input type="email" name="email" required autocomplete="email" title="Your email address" placeholder="jsnjlsfs@gmail.com"></label>
-            <label>Topic: <input type="text" name="topic" required title="Topic of contact"></label>
-            <label>Description: <textarea name="description" title="A description of the reason of contact"></textarea></label>
+            <label>First name: <input type="text" name="fname" id="firstname" required autocomplete="given-name" title="Your first name"></label>
+            <label>Last name: <input type="text" name="lname" id="lastname" required autocomplete="family-name" title="Your last name"></label>
+            <label>Email: <input type="email" name="email" id="email" required autocomplete="email" title="Your email address" placeholder="jsnjlsfs@gmail.com"></label>
+            <label>Topic: <input type="text" name="topic" required title="Topic of contact" id="topic"></label>
+            <label>Description: <textarea name="description" title="A description of the reason of contact" id="text"></textarea></label>
             <input type="hidden" name="timestamp" id="formLoadTime">
             <input type="submit" value="Apply now">
         </form>
