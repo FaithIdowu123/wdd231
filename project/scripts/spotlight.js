@@ -1,7 +1,7 @@
 import { apiFetch, loadjson } from "./games.mjs";
 import { displayFeatured, displaymodel } from "./display.mjs";
 import { getRandomInt} from "./random.mjs";
-const url = "https://api.allorigins.win/get?url=" + encodeURIComponent(`https://www.freetogame.com/api/games?sort-by=popularity`);
+const url = `https://corsproxy.io/?https://www.freetogame.com/api/games?sort-by=popularity`;
 
 
 apiFetch(url).then(data => {

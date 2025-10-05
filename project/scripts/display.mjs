@@ -29,7 +29,7 @@ export async function displayFeatured(games, start, length) {
       image.loading = "lazy";
       compressImage(game.thumbnail, 0.6).then((src) => {
         image.src = src;
-      });
+    });
     }
 
     
