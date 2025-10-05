@@ -2,6 +2,12 @@ const gameDetails = document.querySelector("#details");
 
 export function displayFeatured(games, start, length) {
     document.querySelector("#gamecards").innerHTML = ``;
+    const link = document.createElement("link");
+    link.setAttribute("rel", "preload");
+    link.setAttribute("as", "image");
+    link.setAttribute("href", games[start].thumbnail);
+    link.setAttribute("fetchpriority", "high");
+    document.head.appendChild(link);
     for (let index = start; index <= length; index++) {
         const game = games[index];
         const card = document.createElement("aside");

@@ -230,7 +230,7 @@ section#gamecards {
   place-content: center;
   gap: 20px;
   width: 100%;
-  min-height: 700px;
+  min-height: 2000px;
 }
 
 section#gamecards aside {
@@ -381,5 +381,9 @@ footer {
     justify-items: flex-end;
     width: 100%;
     text-align: center;
+  }
+
+  section#gamecards {
+    height: auto;
   }
 }
