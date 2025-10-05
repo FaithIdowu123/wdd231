@@ -24,13 +24,15 @@ export async function displayFeatured(games, start, length) {
     image.alt = game.title;
     if (index === start) {
       image.fetchPriority = "high"; 
+      image.src = firstImageURL;
     } else {
       image.loading = "lazy";
+      compressImage(game.thumbnail, 0.6).then((src) => {
+        image.src = src;
+      });
     }
 
-    compressImage(game.thumbnail, 0.6).then((src) => {
-      image.src = src;
-    });
+    
 
     title.textContent = game.title;
     desc.textContent = game.short_description;
