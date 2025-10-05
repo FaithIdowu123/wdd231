@@ -124,7 +124,7 @@ li.current-page a { background: rgba(0,0,0,.3); }
   border-radius: 6px;
 }
 
-dialog {
+dialog#details {
   background: var(--background-color);
   padding: 0;
   width: 70%;
@@ -132,9 +132,9 @@ dialog {
   animation: fadeInUp .5s ease-in;
 }
 
-dialog img { width: 100%; height: auto; }
+dialog#details img { width: 100%; height: auto; }
 
-dialog button {
+dialog#details button {
   position: fixed;
   color: var(--accent-color);
   background: rgba(0,0,0,.3);
@@ -143,12 +143,12 @@ dialog button {
   cursor: pointer;
 }
 
-dialog button:hover {
+dialog#details button:hover {
   background: rgba(0,0,0,.1);
   color: #ccc;
 }
 
-dialog h2 {
+dialog#details h2 {
   width: 100%;
   text-align: left;
   background: rgba(0,0,0,.5);
@@ -158,9 +158,9 @@ dialog h2 {
   top: -5px;
 }
 
-dialog h2, dialog p, dialog a { padding: 0 5px; }
+dialog#details h2, dialog#details p, dialog#details a { padding: 0 5px; }
 
-dialog a {
+dialog#details a {
   position: relative;
   top: -50px;
   color: var(--text-color);
@@ -175,7 +175,7 @@ dialog a {
   box-shadow: 0 0 10px #000;
 }
 
-dialog a:hover {
+dialog#details#details a:hover {
   background: rgba(58,29,225,.9);
   color: var(--text-color);
 }
