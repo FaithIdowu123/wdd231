@@ -1,4 +1,4 @@
-import { displayFeatured, displaymodel, loadjson } from "./gamequest.mjs";
+import { apiFetch, displayFeatured, displaymodel, loadjson} from "./gamequest.mjs";
 const url = `https://corsproxy.io/?https://www.freetogame.com/api/games`;
 const increase = document.querySelector("#in");
 const decrease = document.querySelector("#de");
@@ -8,26 +8,27 @@ const genre = document.querySelector("#genre");
 let start = 0
 count.textContent = (start / 12) + 1
 
-displayfilter()
 
-loadjson("data/games.json").then(data => {
-  displayFeatured(data,start, 11 + start);
+let games = []
+apiFetch(url).then(data => {
+  games = data
+  displayFeatured(games,start, 11 + start);
   var total = 0
-  data.forEach(game => {
+  games.forEach(game => {
     total += 1
   });
-  console.log(total);
 })
+displayfilter()
 
 increase.addEventListener("click", ()=>{
     start += 12
-    loadjson("data/games.json").then(data => { 
-        if (start > data.length - 11 ){
-          start = data.length - 11 
+    if (games != []){
+        if (start > games.length - 11 ){
+          start = games.length - 11 
         }
-        displayFeatured(data,start, 11 + start);
+        displayFeatured(games,start, 11 + start);
         count.innerHTML = Math.round((start / 12) + 1)
-    })
+    }
 });
 
 decrease.addEventListener("click", ()=>{
@@ -35,10 +36,10 @@ decrease.addEventListener("click", ()=>{
     if (start < 0 ){
         start = 0
     }
-    loadjson("data/games.json").then(data => { 
-      displayFeatured(data,start, 11 + start)
+    if (games != []) { 
+      displayFeatured(games,start, 11 + start)
       count.innerHTML = Math.round((start / 12) + 1);
-    }) 
+    }
     
 });
 
@@ -51,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const name = text.value.toLowerCase();
     const gen = genre.value;
 
-    loadjson("data/games.json").then(data => {
-      const results = data.filter(game => {
+    if (games != []) {
+      const results = games.filter(game => {
         if (name && gen) {
           return game.title.toLowerCase().includes(name) && game.genre === gen;
         } else if (name) {
@@ -62,32 +63,32 @@ document.addEventListener("DOMContentLoaded", () => {
         } else {
           return game
         }
-    });
+      });
       count.textContent = 1
       if (!gen){
         displayFeatured(results,0, 11);
       } else {
         displayFeatured(results, 0, results.length - 1);
       }
-    });
+    };
   });
 });
 
 function displayfilter(){
-    genre.innerHTML= ``;
-    let first = document.createElement("option");
-    first.value = "";
-    first.textContent = "All";
-    genre.appendChild(first)
-    loadjson("data/games.json").then(data => {
-        let genres = data.map(game => game.genre);
-        let uniqueGenres = [...new Set(genres)];
-        uniqueGenres.sort();
-        uniqueGenres.forEach(g => {
-            let option = document.createElement("option");
-            option.value = g;
-            option.textContent = g;
-            genre.appendChild(option);
-        });
-    })
+  genre.innerHTML= ``;
+  let first = document.createElement("option");
+  first.value = "";
+  first.textContent = "All";
+  genre.appendChild(first)
+  if (games != []) {
+      let genres = games.map(game => game.genre);
+      let uniqueGenres = [...new Set(genres)];
+      uniqueGenres.sort();
+      uniqueGenres.forEach(g => {
+          let option = document.createElement("option");
+          option.value = g;
+          option.textContent = g;
+          genre.appendChild(option);
+      });
+  }
 }
