@@ -1,4 +1,4 @@
-import { displayFeatured, displaymodel, apiFetch, getRandomInt } from "./display.mjs";
+import { displayFeatured, displaymodel, apiFetch, getRandomInt } from "./gamequest.mjs";
 
 const url = `https://corsproxy.io/?https://www.freetogame.com/api/games?sort-by=popularity`;
 const timestampField = document.getElementById("formLoadTime");
