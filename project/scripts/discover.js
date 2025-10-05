@@ -1,9 +1,20 @@
 import { displayFeatured, displaymodel, loadjson } from "./gamequest.mjs";
 window.addEventListener("DOMContentLoaded", () => {
   requestIdleCallback(() => {
-    import("./games.mjs").then(m => m.loadGames());
+    import("./gamequest.mjs").then(m => 
+      m.loadjson("data/games.json").then(data => {
+          games = data
+          displayFeatured(games,start, 11 + start);
+          var total = 0
+          games.forEach(game => {
+            total += 1
+          });
+          displayfilter();
+      })
+    );
   });
 });
+
 const increase = document.querySelector("#in");
 const decrease = document.querySelector("#de");
 const count = document.querySelector("#number");
@@ -13,15 +24,6 @@ let start = 0
 count.textContent = (start / 12) + 1
 
 let games = []
-loadjson("data/games.json").then(data => {
-  games = data
-  displayFeatured(games,start, 11 + start);
-  var total = 0
-  games.forEach(game => {
-    total += 1
-  });
-})
-displayfilter()
 
 increase.addEventListener("click", ()=>{
     start += 12
