@@ -1,4 +1,9 @@
 import { displayFeatured, displaymodel, loadjson } from "./gamequest.mjs";
+window.addEventListener("DOMContentLoaded", () => {
+  requestIdleCallback(() => {
+    import("./games.mjs").then(m => m.loadGames());
+  });
+});
 const increase = document.querySelector("#in");
 const decrease = document.querySelector("#de");
 const count = document.querySelector("#number");
