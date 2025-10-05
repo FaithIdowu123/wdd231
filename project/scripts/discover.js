@@ -1,5 +1,4 @@
-import { apiFetch, displayFeatured, displaymodel, loadjson} from "./gamequest.mjs";
-const url = `https://corsproxy.io/?https://www.freetogame.com/api/games`;
+import { displayFeatured, displaymodel, loadjson } from "./gamequest.mjs";
 const increase = document.querySelector("#in");
 const decrease = document.querySelector("#de");
 const count = document.querySelector("#number");
@@ -10,7 +9,7 @@ count.textContent = (start / 12) + 1
 
 
 let games = []
-apiFetch(url).then(data => {
+loadjson("data/games.json").then(data => {
   games = data
   displayFeatured(games,start, 11 + start);
   var total = 0
