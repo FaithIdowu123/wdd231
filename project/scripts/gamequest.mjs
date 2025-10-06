@@ -34,53 +34,50 @@ export async function loadjson(path) {
 
 export async function displayFeatured(games, start, length) {
   const container = document.querySelector("#gamecards");
-  if (!container) return;
-  container.innerHTML = '';
+  container.innerHTML = ``;
 
-  if (!Array.isArray(games) || games.length === 0) return;
+  const firstImageURL = await compressImage(games[start].thumbnail, 0.6);
+  const preloadLink = document.createElement("link");
+  preloadLink.rel = "preload";
+  preloadLink.as = "image";
+  preloadLink.href = firstImageURL;
+  preloadLink.fetchPriority = "high";
+  document.head.appendChild(preloadLink);
 
-  const lastIndex = Math.min(length, games.length - 1);
-  // Compress only the first image synchronously
-  const firstThumb = games[start].thumbnail;
-  let firstImageURL = firstThumb;
-  try {
-    firstImageURL = await compressImage(firstThumb, 0.6);
-  } catch (e) {
-    firstImageURL = firstThumb;
-  }
-
-  for (let index = start; index <= lastIndex; index++) {
+  for (let index = start; index <= length; index++) {
     const game = games[index];
-    const card = document.createElement('aside');
-    const image = document.createElement('img');
-    const title = document.createElement('h2');
-    const desc = document.createElement('p');
-    const g = document.createElement('p');
-    const platform = document.createElement('p');
+    const card = document.createElement("aside");
+    const image = document.createElement("img");
+    const title = document.createElement("h2");
+    const desc = document.createElement("p");
+    const genre = document.createElement("p");
+    const platform = document.createElement("p");
 
-    image.alt = game.title || '';
+    image.alt = game.title;
     if (index === start) {
-      image.fetchPriority = 'high';
+      image.fetchPriority = "high"; 
       image.src = firstImageURL;
     } else {
-      image.loading = 'lazy';
-      image.src = game.thumbnail;
+      image.loading = "lazy";
       compressImage(game.thumbnail, 0.6).then((src) => {
-        if (document.body.contains(image)) image.src = src;
-      }).catch(()=>{});
+        image.src = src;
+      });
     }
 
     title.textContent = game.title;
     desc.textContent = game.short_description;
-    g.textContent = game.genre;
+    genre.textContent = game.genre;
     platform.textContent = game.platform;
 
-    card.append(image, title, desc, g, platform);
-    [image, title].forEach(el => el.addEventListener('click', () => displaymodel(game)));
+    card.append(image, title, desc, genre, platform);
+
+    [image, title].forEach((el) => {
+      el.addEventListener("click", () => displaymodel(game));
+    });
+
     container.appendChild(card);
   }
 }
-
 
 export async function displaymodel(game) {
   gameDetails.innerHTML = ``;
