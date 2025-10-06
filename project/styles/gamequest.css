@@ -142,18 +142,25 @@ main {
   gap: 10px;
 }
 
+ label {
+  width: 10%;
+  height: 10px;
+ }
 #searchForm input[type=text] {
-  width: 60%;
+  width: 85%;
+  margin-left: 10px;
 }
 
 #searchForm select {
   width: 20%;
   max-width: 150px;
+  height: 40px;
 }
 
 #searchForm button {
   width: 20%;
   max-width: 100px;
+  height: 40px;
 }
 
 #searchForm input[type=text],
