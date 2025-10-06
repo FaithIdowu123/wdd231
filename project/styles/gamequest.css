@@ -57,6 +57,7 @@ header img {
 }
 
 .title h2 {
+  margin-bottom: -15px;
   font-size: 25px;
 }
 
@@ -165,12 +166,11 @@ main {
 /* --------- Dialog --------- */
 dialog#details {
   background: var(--background-color);
+  padding: 0;
   width: 70%;
   max-width: 900px;
   animation: fadeInUp 0.5s ease-in;
   border: none;
-  margin: 0 auto;
-  margin-top: 20px;
 }
 
 dialog#details img {
@@ -200,13 +200,13 @@ dialog#details h2 {
   position: relative;
   font-size: 40px;
   top: -5px;
+  margin-bottom: -15px;
 }
 
 dialog#details h2,
 dialog#details p,
 dialog#details a {
   padding: 0 5px;
-  margin-bottom: 10px;
 }
 
 dialog#details a {
@@ -267,6 +267,7 @@ section#gamecards aside h2 {
   position: relative;
   font-size: 25px;
   top: -5px;
+  margin-bottom: -15px;
   cursor: pointer;
 }
 
@@ -278,7 +279,6 @@ section#gamecards aside h2:hover {
 section#gamecards aside h2,
 section#gamecards aside p {
   padding: 0 10px;
-  margin-bottom: 10px;
 }
 
 /* --------- Scroller --------- */
@@ -312,6 +312,9 @@ section.scroller button:hover {
   box-shadow: 1px 1px 2px 1px #000;
 }
 
+.contactform p {
+  margin-top: -15px;
+}
 
 .contactform label {
   font-weight: bold;
