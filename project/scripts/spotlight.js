@@ -1,10 +1,9 @@
-import { displayFeatured, displaymodel, apiFetch, getRandomInt } from "./gamequest.mjs";
+import { displayFeatured, displaymodel, loadjson, getRandomInt } from "./gamequest.mjs";
 
-const url = `https://corsproxy.io/?https://www.freetogame.com/api/games?sort-by=popularity`;
 const timestampField = document.getElementById("formLoadTime");
 let comments = JSON.parse(localStorage.getItem("comments")) || [];
 
-apiFetch(url).then(data => {
+loadjson("data/populargames.json").then(data => {
   const random = getRandomInt(0, data.length - 1);
   displayFeatured(data, random, random + 2);
 });

@@ -12,17 +12,12 @@ let games = [];
 
 count.textContent = (start / 12) + 1;
 
-// ✅ Load scripts & data lazily after first paint
 window.addEventListener("DOMContentLoaded", () => {
-  // Let the browser paint the visible content first
   requestIdleCallback(() => {
     import("./gamequest.mjs").then(m => {
-      // Assign imported functions to variables
       displayFeatured = m.displayFeatured;
       displaymodel = m.displaymodel;
       loadjson = m.loadjson;
-
-      // Fetch data AFTER scripts are ready
       return loadjson("data/games.json");
     })
     .then(data => {

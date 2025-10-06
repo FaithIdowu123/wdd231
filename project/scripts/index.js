@@ -1,9 +1,3 @@
-import { displayFeatured, displaymodel, apiFetch } from "./gamequest.mjs";
-const url = `https://corsproxy.io/?https://www.freetogame.com/api/games?sort-by=popularity`;
+import { displayFeatured, displaymodel, loadjson } from "./gamequest.mjs";
 
-apiFetch(url).then(data => {displayFeatured(data,0, 5);})
-
-
-
-
-
+loadjson("data/populargames.json").then(data => {displayFeatured(data,0, 5);})
