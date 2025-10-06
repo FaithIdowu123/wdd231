@@ -34,50 +34,55 @@ export async function loadjson(path) {
 
 export async function displayFeatured(games, start, length) {
   const container = document.querySelector("#gamecards");
-  container.innerHTML = ``;
+  if (!container) return;
+  container.innerHTML = '';
 
-  const firstImageURL = await compressImage(games[start].thumbnail, 0.6);
-  const preloadLink = document.createElement("link");
-  preloadLink.rel = "preload";
-  preloadLink.as = "image";
-  preloadLink.href = firstImageURL;
-  preloadLink.fetchPriority = "high";
-  document.head.appendChild(preloadLink);
+  if (!Array.isArray(games) || games.length === 0) return;
 
-  for (let index = start; index <= length; index++) {
+  const lastIndex = Math.min(length, games.length - 1);
+  // Compress only the first image synchronously
+  const firstThumb = games[start].thumbnail;
+  let firstImageURL = firstThumb;
+  try {
+    firstImageURL = await compressImage(firstThumb, 0.6);
+  } catch (e) {
+    firstImageURL = firstThumb;
+  }
+
+  for (let index = start; index <= lastIndex; index++) {
     const game = games[index];
-    const card = document.createElement("aside");
-    const image = document.createElement("img");
-    const title = document.createElement("h2");
-    const desc = document.createElement("p");
-    const genre = document.createElement("p");
-    const platform = document.createElement("p");
+    const card = document.createElement('aside');
+    const image = document.createElement('img');
+    const title = document.createElement('h2');
+    const desc = document.createElement('p');
+    const g = document.createElement('p');
+    const platform = document.createElement('p');
 
-    image.alt = game.title;
+    image.alt = game.title || '';
     if (index === start) {
-      image.fetchPriority = "high"; 
+      image.fetchPriority = 'high';
       image.src = firstImageURL;
     } else {
-      image.loading = "lazy";
+      image.loading = 'lazy';
+      image.src = game.thumbnail; // start with original thumbnail
+      // later compress in the background and swap (non-blocking)
       compressImage(game.thumbnail, 0.6).then((src) => {
-        image.src = src;
-      });
+        // only replace if element still in DOM and original loaded
+        if (document.body.contains(image)) image.src = src;
+      }).catch(()=>{/* ignore */});
     }
 
     title.textContent = game.title;
     desc.textContent = game.short_description;
-    genre.textContent = game.genre;
+    g.textContent = game.genre;
     platform.textContent = game.platform;
 
-    card.append(image, title, desc, genre, platform);
-
-    [image, title].forEach((el) => {
-      el.addEventListener("click", () => displaymodel(game));
-    });
-
+    card.append(image, title, desc, g, platform);
+    [image, title].forEach(el => el.addEventListener('click', () => displaymodel(game)));
     container.appendChild(card);
   }
 }
+
 
 export async function displaymodel(game) {
   gameDetails.innerHTML = ``;
@@ -118,27 +123,33 @@ export async function displaymodel(game) {
 
 export async function compressImage(url, quality = 0.7) {
   try {
-    url = "https://corsproxy.io/?" + url;
-    const response = await fetch(url, { cache: "force-cache" }); 
-    const blob = await response.blob();
-    const bitmap = await createImageBitmap(blob);
+    // Use cache API keyed by original URL
+    const cache = await caches.open('compressed-images-v1');
+    const cached = await cache.match(url);
+    if (cached) {
+      const blob = await cached.blob();
+      return URL.createObjectURL(blob);
+    }
 
-    const canvas = document.createElement("canvas");
-    const ctx = canvas.getContext("2d");
+    const proxied = 'https://corsproxy.io/?' + url;
+    const resp = await fetch(proxied, { cache: 'force-cache' });
+    if (!resp.ok) throw new Error('Image fetch failed');
+
+    const blob = await resp.blob();
+    const bitmap = await createImageBitmap(blob);
+    const canvas = document.createElement('canvas');
     canvas.width = bitmap.width;
     canvas.height = bitmap.height;
+    const ctx = canvas.getContext('2d');
     ctx.drawImage(bitmap, 0, 0);
 
-    return new Promise((resolve) => {
-      canvas.toBlob(
-        (compressedBlob) => resolve(URL.createObjectURL(compressedBlob)),
-        "image/webp",
-        quality
-      );
-    });
+    const compressedBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', quality));
+    // cache under the original URL (so future calls reuse this)
+    cache.put(url, new Response(compressedBlob.clone()));
+    return URL.createObjectURL(compressedBlob);
   } catch (err) {
-    console.error("Image compression failed:", err);
-    return url; 
+    console.warn('compressImage failed', err);
+    return url;
   }
 }
 
