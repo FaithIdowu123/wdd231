@@ -1,33 +1,32 @@
 const gameDetails = document.querySelector("#details");
 
 export async function apiFetch(url) {
-    let data = [];
+  let data = [];
   try {
     const response = await fetch(url);
     if (response.ok) {
       data = await response.json(); 
       console.log(data);
     } else {
-        throw Error(await response.text());
+      throw Error(await response.text());
     }
   } catch (error) {
-      console.log(error);
-      data = "null";
+    console.log(error);
+    data = "null";
   }
   return data;
 }
 
 export async function loadjson(path) {
   let json = [];
-  try{
+  try {
     const response = await fetch(path);
     if (response.ok) {
-        json = await response.json();
+      json = await response.json();
+    } else {
+      throw new Error("Could not fetch from " + path);
     }
-    else{
-        throw new Error("Could not fetch from " + path);
-    }
-  } catch (error){
+  } catch (error) {
     console.log(error);
   }
   return json;
@@ -62,10 +61,8 @@ export async function displayFeatured(games, start, length) {
       image.loading = "lazy";
       compressImage(game.thumbnail, 0.6).then((src) => {
         image.src = src;
-    });
+      });
     }
-
-    
 
     title.textContent = game.title;
     desc.textContent = game.short_description;
@@ -75,7 +72,7 @@ export async function displayFeatured(games, start, length) {
     card.append(image, title, desc, genre, platform);
 
     [image, title].forEach((el) => {
-      el.addEventListener("click", () => displayModel(game));
+      el.addEventListener("click", () => displaymodel(game));
     });
 
     container.appendChild(card);
@@ -119,7 +116,7 @@ export async function displaymodel(game) {
   exit.addEventListener("click", () => gameDetails.close());
 }
 
-async function compressImage(url, quality = 0.7) {
+export async function compressImage(url, quality = 0.7) {
   try {
     url = "https://corsproxy.io/?" + url;
     const response = await fetch(url, { cache: "force-cache" }); 
