@@ -54,7 +54,7 @@ export async function displayFeatured(games, start, length) {
     const platform = document.createElement("p");
 
     image.alt = game.title;
-    if (index >= start + 4) {
+    if (index === start) {
       image.fetchPriority = "high"; 
       image.src = firstImageURL;
     } else {
