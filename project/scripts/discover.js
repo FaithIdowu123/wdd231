@@ -10,7 +10,7 @@ const genre = document.querySelector("#genre");
 let start = 0;
 let games = [];
 
-count.textContent = (start / 12) + 1;
+count.textContent = (start / 15) + 1;
 
 window.addEventListener("DOMContentLoaded", () => {
   requestIdleCallback(() => {
@@ -22,7 +22,7 @@ window.addEventListener("DOMContentLoaded", () => {
     })
     .then(data => {
       games = data;
-      displayFeatured(games, start, 11 + start);
+      displayFeatured(games, start, 14 + start);
       displayfilter();
     })
     .catch(err => console.error("Failed to load data:", err));
@@ -31,20 +31,20 @@ window.addEventListener("DOMContentLoaded", () => {
 
 // ✅ Pagination controls
 increase.addEventListener("click", () => {
-  start += 12;
+  start += 15;
   if (games.length) {
-    if (start > games.length - 11) start = games.length - 11;
+    if (start > games.length - 14) start = games.length - 14;
     displayFeatured(games, start, 11 + start);
-    count.textContent = Math.round((start / 12) + 1);
+    count.textContent = Math.round((start / 15) + 1);
   }
 });
 
 decrease.addEventListener("click", () => {
-  start -= 12;
+  start -= 15;
   if (start < 0) start = 0;
   if (games.length) {
-    displayFeatured(games, start, 11 + start);
-    count.textContent = Math.round((start / 12) + 1);
+    displayFeatured(games, start, 14 + start);
+    count.textContent = Math.round((start / 15) + 1);
   }
 });
 
@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     count.textContent = 1;
     if (!gen) {
-      displayFeatured(results, 0, 11);
+      displayFeatured(results, 0, 15);
     } else {
       displayFeatured(results, 0, results.length - 1);
     }
