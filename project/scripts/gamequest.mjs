@@ -64,12 +64,10 @@ export async function displayFeatured(games, start, length) {
       image.src = firstImageURL;
     } else {
       image.loading = 'lazy';
-      image.src = game.thumbnail; // start with original thumbnail
-      // later compress in the background and swap (non-blocking)
+      image.src = game.thumbnail;
       compressImage(game.thumbnail, 0.6).then((src) => {
-        // only replace if element still in DOM and original loaded
         if (document.body.contains(image)) image.src = src;
-      }).catch(()=>{/* ignore */});
+      }).catch(()=>{});
     }
 
     title.textContent = game.title;
@@ -123,33 +121,27 @@ export async function displaymodel(game) {
 
 export async function compressImage(url, quality = 0.7) {
   try {
-    // Use cache API keyed by original URL
-    const cache = await caches.open('compressed-images-v1');
-    const cached = await cache.match(url);
-    if (cached) {
-      const blob = await cached.blob();
-      return URL.createObjectURL(blob);
-    }
-
-    const proxied = 'https://corsproxy.io/?' + url;
-    const resp = await fetch(proxied, { cache: 'force-cache' });
-    if (!resp.ok) throw new Error('Image fetch failed');
-
-    const blob = await resp.blob();
+    url = "https://corsproxy.io/?" + url;
+    const response = await fetch(url, { cache: "force-cache" }); 
+    const blob = await response.blob();
     const bitmap = await createImageBitmap(blob);
-    const canvas = document.createElement('canvas');
+
+    const canvas = document.createElement("canvas");
+    const ctx = canvas.getContext("2d");
     canvas.width = bitmap.width;
     canvas.height = bitmap.height;
-    const ctx = canvas.getContext('2d');
     ctx.drawImage(bitmap, 0, 0);
 
-    const compressedBlob = await new Promise(resolve => canvas.toBlob(resolve, 'image/webp', quality));
-    // cache under the original URL (so future calls reuse this)
-    cache.put(url, new Response(compressedBlob.clone()));
-    return URL.createObjectURL(compressedBlob);
+    return new Promise((resolve) => {
+      canvas.toBlob(
+        (compressedBlob) => resolve(URL.createObjectURL(compressedBlob)),
+        "image/webp",
+        quality
+      );
+    });
   } catch (err) {
-    console.warn('compressImage failed', err);
-    return url;
+    console.error("Image compression failed:", err);
+    return url; 
   }
 }
 
