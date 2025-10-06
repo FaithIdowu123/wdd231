@@ -3,7 +3,7 @@ import { displayFeatured, displaymodel, loadjson, getRandomInt } from "./gameque
 const timestampField = document.getElementById("formLoadTime");
 let comments = JSON.parse(localStorage.getItem("comments")) || [];
 
-loadjson("data/populargames.json").then(data => {
+loadjson("data/populargames.json?v=1.0.3").then(data => {
   const random = getRandomInt(0, data.length - 1);
   displayFeatured(data, random, random + 2);
 });

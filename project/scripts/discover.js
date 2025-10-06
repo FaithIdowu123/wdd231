@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
       displayFeatured = m.displayFeatured;
       displaymodel = m.displaymodel;
       loadjson = m.loadjson;
-      return loadjson("data/games.json");
+      return loadjson("data/games.json?v=1.0.3");
     })
     .then(data => {
       games = data;
