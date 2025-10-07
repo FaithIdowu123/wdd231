@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const text = document.getElementById("text");
 
   form.addEventListener("submit", (e) => {
-    e.preventDefault();
     const comment = [
       `${fname.value} ${lname.value}`,
       email.value,
