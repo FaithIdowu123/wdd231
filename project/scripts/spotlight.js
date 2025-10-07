@@ -31,7 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
     ];
     comments.push(comment);
     setvisits();
-    form.reset();
   });
 });
 
