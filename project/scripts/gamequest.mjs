@@ -1,18 +1,18 @@
 const gameDetails = document.querySelector("#details");
 
 export async function loadjson(path) {
-  let json = [];
+  let data = [];
   try {
     const response = await fetch(path);
     if (response.ok) {
-      json = await response.json();
+      data = await response.json();
     } else {
       throw new Error("Could not fetch from " + path);
     }
   } catch (error) {
     console.log(error);
   }
-  return json;
+  return data;
 }
 
 export async function displayFeatured(games, start, length) {
